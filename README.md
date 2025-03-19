@@ -1,0 +1,23 @@
+Type2-low Asthma Transcriptomics Project Analysis Scripts and
+Supplementary Data
+================
+
+# Overview
+
+This repository contains scripts used for data analysis in the
+*Type2-low Asthma Transcriptomics Project* study. These scripts were
+developed to process, analyze, and visualize the data used in the
+project. A separate repository hosts the supplementary tables associated
+with the study.
+
+# Repositories
+
+- **[Scripts](#)**: Contains R scripts used for data preprocessing,
+  statistical analysis, and visualization.
+- **[Supplementary_data](#)**: Includes supplementary tables with
+  processed data and additional reference materials.
+
+# Contact
+
+For any questions or collaborations, please reach out via
+<t.karp@rug.nl>
