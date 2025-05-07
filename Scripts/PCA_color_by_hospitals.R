@@ -5,7 +5,9 @@ library(edgeR)
 library(rpca)
 library(ggpubr)
 
-setwd("/Users/tatiana/Work/RP2/ATLANTIS/")
+setwd("Work/RP2/ATLANTIS/")
+
+# 1. prepare data
 master.Table <- read.csv("./th_high_th_low/master_table_th2.csv", header = TRUE) %>%
   filter (QC_check == 'YES') 
 
@@ -46,13 +48,15 @@ norm.expr.data.top <- top_expression[rowSums(top_expression) >= 10,] %>%
 
 norm.expr.data.top <- norm.expr.data.top[,master.Table$GenomeScan_ID]
 
+# 2. Calculate PC
 norm.expr.data.pca.top <- norm.expr.data.top %>%
   t() %>% #transpose the matrix to calculate the components by sample 
   stats::prcomp(
     center = TRUE,
     scale. = FALSE)
 
-## 1. Check hospitals
+## 3. Plot PCA
+## 3.1 Check hospitals
 pc12_hosp <- ggbiplot::ggbiplot(norm.expr.data.pca.top, 
                                 choices = 1:2, 
                                 obs.scale = 1, 
@@ -130,4 +134,20 @@ png("./th_high_th_low/plots/PC12345_hospitals.png",
     res = 300)
 print(figure)
 dev.off()
+
+## 3.2 Check T2 group 
+pc12_t2_group <- ggbiplot::ggbiplot(norm.expr.data.pca.top, 
+                                choices = 1:2, 
+                                obs.scale = 1, 
+                                var.scale = 1, 
+                                ellipse = TRUE, 
+                                groups = master.Table$hospital,
+                                point.size = 1,
+                                labels = NULL, 
+                                var.axes = FALSE,
+                                ellipse.prob = 0.95,
+                                ellipse.fill = FALSE, 
+                                ellipse.linewidth = 0.5) +
+  theme_minimal() +
+  guides(color=guide_legend("group_th"))
 
