@@ -15,9 +15,6 @@ hospital.Table <- read.csv('./patient_data_final.csv',header = TRUE) %>%
   as.data.frame()%>%
   dplyr::select(c(PT,hospital))
 
-master.Table <- master.Table%>%
-  left_join(hospital.Table, by = c('PT' = 'PT'))%>%
-  mutate(hospital = as.factor(hospital))
 
 expression.data <- read.csv('./Umi_dedup/20201107_ATLANTIS_raw_readcount_dedup_FINAL.csv', header =TRUE)%>%
   tibble::column_to_rownames("Gene")%>%
