@@ -13,17 +13,27 @@ wgcna_modules <- readRDS("./th_high_th_low/plots/Eigengene_values_all_modules.rd
 
 
 # Arrange first 3 figures together 
-combined_plot_123 <- 
-  sankey_plt /
-  ((volcano_list[[1]]) | (volcano_list[[2]])) +
-  plot_annotation(tag_levels = 'A') & 
-  theme(plot.title = element_text(size = 18, face = "bold"),  # Adjust title size
-        plot.subtitle = element_text(size = 14))
+
+# Combine volcano plots with shared title
+volcano_combined <- ggarrange(volcano_list[[1]] , volcano_list[[2]],
+                                               nrow = 1, ncol = 2)  %>%
+  annotate_figure(top = text_grob("ATLANTIS cohort", face = "bold", size = 15),
+                  left = text_grob((expression(-log[10]~FDR)), rot = 90, size = 15))  
+# combined_plot_123 <- 
+#   sankey_plt /
+#   volcano_combined +
+#   plot_annotation(tag_levels = 'A') & 
+#   theme(plot.title = element_text(size = 18, face = "plain"),  # Adjust title size
+#         plot.subtitle = element_text(size = 14))
+
+combined_plot_12 <- ggarrange(sankey_plt, volcano_combined,
+                                        nrow = 2, ncol = 1,
+                                        labels = c('A', 'B')) 
 
 png("./th_high_th_low/plots/combined_figure_1ABC.png",
-    width = 3000, height = 2500,
+    width = 3650, height = 3000,
     res = 300)
-print(combined_plot_123)
+print(combined_plot_12)
 dev.off()
 
 # Arrange figure 4 and 5 together 
