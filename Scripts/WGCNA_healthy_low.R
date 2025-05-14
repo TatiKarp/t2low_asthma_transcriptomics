@@ -205,6 +205,7 @@ write.csv(module.gene.mapping%>%
 
 # plot eigengene data per group for each module
 
+sign.modules <- read.csv('./th_high_th_low/WGCNA_th2low/Genes_in_sign_modules.csv')
 module_eigengenes_plt <- read.csv('./th_high_th_low/WGCNA_th2low/WGCNA_modules_eigengenes.csv')%>%
   tidyr::pivot_longer(-X, names_to= c('module'))%>%
   dplyr::rename(Sample = X)%>%
@@ -213,7 +214,7 @@ module_eigengenes_plt <- read.csv('./th_high_th_low/WGCNA_th2low/WGCNA_modules_e
   
 png('./th_high_th_low/WGCNA_th2low/Eigengene_values_sign_modules.png', res = 300,  width = 1880, height = 1400)
 plt <- ggplot(module_eigengenes_plt%>%
-         filter(module %in% paste0('ME',unique(sign.modules$`bwnet$colors`))), aes(module, value))+
+         filter(module %in% paste0('ME',unique(sign.modules$bwnet.colors))), aes(module, value))+
   geom_boxplot(aes(fill = group_th),outlier.shape = NA)+
   geom_point(aes(fill = group_th),size = 1, shape = 21, position=position_jitterdodge(0.1), alpha= 0.5)+
   ylab('Eigengene values')+
@@ -227,7 +228,7 @@ dev.off()
 stat.test <- module_eigengenes_plt%>%
   group_by(module)%>%
   rstatix::t_test(value~group_th)%>%
-  rstatix::add_y_position(step.increase = 0.08) %>%
+  rstatix::add_y_position(step.increase = 0.21) %>%
   rstatix::add_x_position(x = "module", dodge = 0) %>%
   mutate(p = round(p, digits = 3))%>%
   mutate(p.adj = round(p.adjust(p, method = 'fdr'), digits = 3))
@@ -247,9 +248,9 @@ plt <- ggplot(module_eigengenes_plt, aes(module, value))+
                     labels = c("Healthy", "T2-low"),
                     name = "") +
   theme_classic()+
-  ggpubr::stat_pvalue_manual(stat.test, label = "p adj = {p.adj}", xmin = 'xmin', xmax ='xmax',size = 2.5, remove.bracket = TRUE)+
-  ggpubr::stat_pvalue_manual(stat.test, label = "p = {p}", xmin = 'xmin', xmax ='xmax',size = 2.5, remove.bracket = TRUE,
-                             y.position = stat.test$y.position + 0.03)+
+  ggpubr::stat_pvalue_manual(stat.test, label = "p adj = {p.adj}", xmin = 'xmin', xmax ='xmax', size = 3.5, remove.bracket = TRUE)+
+  ggpubr::stat_pvalue_manual(stat.test, label = "p = {p}", xmin = 'xmin', xmax ='xmax', size = 3.5, remove.bracket = TRUE,
+                             y.position = stat.test$y.position + 0.045)+
   ylim(-0.4, 0.6) +
   #annotate("text",x = Inf, y = -0.4, hjust = 1, vjust = 0, label = "t-test, FDR adjusted") +
   theme(axis.text=element_text(size=15),

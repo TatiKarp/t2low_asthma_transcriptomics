@@ -91,7 +91,7 @@ stat.test <- master.Table.plt%>%
   rstatix::wilcox_test(proportion ~ group_th, 
                        ref.group = 'healthy', 
                        p.adjust.method = "fdr")%>%
-  rstatix::add_y_position(step.increase = 0.03)%>%
+  rstatix::add_y_position(step.increase = 0.05)%>%
   rstatix::add_x_position(x = "cell_type", dodge = 0.7) 
 
 # plot for the paper 
@@ -116,7 +116,7 @@ plt <- ggplot(master.Table.plt, aes(x = cell_type,y = proportion)) +
         panel.background = element_blank(), axis.line = element_line(colour = "black", linewidth =0.6),
         legend.text=element_text(size=12),
         legend.key = element_rect(fill = "white"))+
-  stat_pvalue_manual(stat.test, label = "p.adj = {p.adj}", size = 2.5, linetype = 1,  tip.length = 0.01, remove.bracket = FALSE)
+  stat_pvalue_manual(stat.test, label = "p.adj = {p.adj}", size = 3.5, linetype = 1,  tip.length = 0.01, remove.bracket = FALSE)
 #annotate("text",x = Inf, y = 1, hjust = 1, vjust = 0, label = "Wilcox test, p adjusted")
 print(plt)
 dev.off()
