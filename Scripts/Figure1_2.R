@@ -45,7 +45,7 @@ combined_plot_45 <-
         plot.subtitle = element_text(size = 14))
 
 png("./th_high_th_low/plots/combined_figure_2AB.png",
-    width = 3000, height = 3000,
+    width = 3200, height = 3300,
     res = 300)
 print(combined_plot_45)
 dev.off()

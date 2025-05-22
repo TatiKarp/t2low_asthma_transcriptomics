@@ -230,8 +230,10 @@ stat.test <- module_eigengenes_plt%>%
   rstatix::t_test(value~group_th)%>%
   rstatix::add_y_position(step.increase = 0.21) %>%
   rstatix::add_x_position(x = "module", dodge = 0) %>%
-  mutate(p = round(p, digits = 3))%>%
-  mutate(p.adj = round(p.adjust(p, method = 'fdr'), digits = 3))
+  mutate(p = round(p, digits = 3)) %>%
+  mutate(p.adj = round(p.adjust(p, method = 'fdr'), digits = 3)) %>%
+  mutate(p = if_else(p < 0.05, paste0(as.character(p),"*"), as.character(p)))
+
 # create a table only nominal p-value significant comparisons
 stat.test.sign <- stat.test%>%
   filter(p < 0.05)

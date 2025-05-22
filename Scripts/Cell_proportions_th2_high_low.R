@@ -92,7 +92,8 @@ stat.test <- master.Table.plt%>%
                        ref.group = 'healthy', 
                        p.adjust.method = "fdr")%>%
   rstatix::add_y_position(step.increase = 0.05)%>%
-  rstatix::add_x_position(x = "cell_type", dodge = 0.7) 
+  rstatix::add_x_position(x = "cell_type", dodge = 0.7) %>%
+  mutate(p.adj = if_else(p.adj < 0.05, paste0(as.character(p.adj),"*"), as.character(p.adj)))
 
 # plot for the paper 
 png('./th_high_th_low/plots/Cell_types_th2_high_low_CIBERSORT.png', res = 300,  width = 1880, height = 1400)

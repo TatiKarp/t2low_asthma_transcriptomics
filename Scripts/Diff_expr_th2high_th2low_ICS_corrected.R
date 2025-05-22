@@ -135,7 +135,7 @@ down_corrected <- plotEnr(geneSets_high[['Down_genes']], t2high_ranks,
   geom_vline(xintercept = sum(ordered.de.results.t2high$`-10logFDR` < 0)) +
   ylab("")
 
-all_plt <- ggarrange(up_corrected, down_corrected,
+all_plt <- ggarrange(up_corrected, down_corrected,9
                      nrow = 2, 
                      labels = c("A",  "B"))
 png("./ATLANTIS/th_high_th_low/plots/GSEA_ICS_corrected_background_NOT_corrected.png",
