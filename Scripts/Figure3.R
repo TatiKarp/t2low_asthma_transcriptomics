@@ -3,7 +3,7 @@ library(ggplot2)
 library(ggpubr)
 
 ## combine with U-biopred
-setwd("./")
+setwd("~/Work/RP2/ATLANTIS")
 volcano_ubiopred_list <- readRDS("./th_high_th_low/plots/UBIOPRED_volcano_list.rds")
 volcano_bamse_list <- readRDS("./th_high_th_low/plots/BAMSE_volcano_list.rds")
 

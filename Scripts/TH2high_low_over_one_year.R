@@ -3,7 +3,7 @@ library(dplyr)
 library(readr)
 library(ggplot2)
 
-setwd("/Users/tatiana/Work/RP2/ATLANTIS")
+setwd("~/Work/RP2/ATLANTIS")
 # master.Table <- read_csv("./th_high_th_low/master_table_th2.csv")
 
 big_master_table <-  read_csv("./atlantis_patient_data.csv") %>%

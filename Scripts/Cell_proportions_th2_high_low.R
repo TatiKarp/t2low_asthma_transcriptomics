@@ -5,9 +5,9 @@ library(ggplot2)
 library(ggpubr)
 ## Cibersort with matrix from Tessa (also used in Zaid's eQTL project) - with ENSEBLE IDs
 
-setwd('/Users/tatiana/Work/RP2/ATLANTIS/')
+setwd("~/Work/RP2/ATLANTIS")
 ## upload source Cibersort
-source('/Users/tatiana/Work/RP2/ATLANTIS/Deconvolution/Deconvolution_Jos/CIBERSORT.R', verbose=TRUE)
+source('~/Work/RP2/ATLANTIS/Deconvolution/Deconvolution_Jos/CIBERSORT.R', verbose=TRUE)
 
 master.Table <- read.csv('./th_high_th_low/master_table_th2.csv')
 

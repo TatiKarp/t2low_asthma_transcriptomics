@@ -4,7 +4,7 @@ library(biomaRt)
 library(fgsea)
 
 
-setwd("Work/RP2")
+setwd("~/Work/RP2")
 # 1. data load
 
 master.Table <- read.csv('./ATLANTIS/th_high_th_low/master_table_th2.csv')

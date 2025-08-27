@@ -7,7 +7,7 @@ library(fgsea)
 
 
 
-setwd("/Users/tatiana/Work/RP2/ATLANTIS")
+setwd("~/Work/RP2/ATLANTIS")
 
 # Bamse result table:
 de.results.high.BAMSE <- read.csv('./th_high_th_low/Bamse_replication/DE_genes_THhigh_healthy.legacyT.csv')

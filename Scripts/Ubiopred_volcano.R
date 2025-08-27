@@ -3,7 +3,7 @@ library(ggplot2)
 library(dplyr)
 library(ggrepel)
 
-setwd("/Users/tatiana/Work/RP2/ATLANTIS")
+setwd("~/Work/RP2/ATLANTIS")
 
 de.results.high.ubiopred <- read.csv('./th_high_th_low/Ubiopred_replication/All_T2_High_vs_Healthy_Limma_DGE.csv')
 de.results.low.ubiopred <- read.csv('./th_high_th_low/Ubiopred_replication/All_T2_Low_vs_Healthy_Limma_DGE.csv')

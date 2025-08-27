@@ -3,7 +3,7 @@ library(dplyr)
 library(edgeR)
 library(biomaRt)
 
-setwd("/Users/tatiana/Work/RP2/ATLANTIS")
+setwd("~/Work/RP2/ATLANTIS")
 master.Table <- read.csv("./th_high_th_low/master_table_th2_stable.csv") %>%
   filter(!is.na(stable_high))
 

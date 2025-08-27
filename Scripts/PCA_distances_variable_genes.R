@@ -6,7 +6,7 @@ library(ggpubr)
 library("factoextra")
 
 
-setwd("Work/RP2/ATLANTIS/")
+setwd("~/Work/RP2/ATLANTIS")
 
 # 1. prepare data
 master.Table <- read.csv("./th_high_th_low/master_table_th2.csv", header = TRUE) %>%

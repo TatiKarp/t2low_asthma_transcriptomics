@@ -4,8 +4,8 @@ library(dplyr)
 library(ggrepel)
 
 
-setwd("/Users/tatiana/Work/RP2/ATLANTIS")
-source ("/Users/tatiana/Work/RP2/ATLANTIS_project/source_scripts/DE_scripts.R")
+setwd("~/Work/RP2/ATLANTIS")
+source ("~/Work/RP2/ATLANTIS_project/source_scripts/DE_scripts.R")
 
 # upload the result table
 de.results.high <- read.csv('./th_high_th_low/DE_genes_THhigh_healthy.csv')

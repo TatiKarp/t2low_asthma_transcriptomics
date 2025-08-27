@@ -3,7 +3,7 @@ library(ggplot2)
 library(dplyr)
 library(tableone)
 
-setwd("/Users/tatiana/Work/RP2/ATLANTIS")
+setwd("~/Work/RP2/ATLANTIS")
 
 ############### prepare the data ###########################
 ## upload all data
@@ -18,7 +18,7 @@ clinical_table <- big_master_table[,c('PT','PACKNO','BMI','PHADRES', 'DUR_DIS','
                                       'B_TLCPNVF', 'B_RVTLCPNVF', 'B_FEV1PNVG','B_FEV1FPNVG', 'FENRES', 'PCD',
                                       'B_R520PNVR', 'B_SCONDPNVF','B_SACINPNVF', 'B_F50PNVR', 'LA', 'WA','TA',
                                       'Pi10', 'WA_TA100', 'VI_856', 'VI_950', 'lung_ratio', 'MLD_ratio',
-                                      'ICS', 'ICS_LABA', 'ICS_DDOSE_EQ', 'ICS_LABA_DDOSE_EQ')]
+                                      'ICS', 'ICS_LABA', 'ICS_DDOSE_EQ', 'ICS_LABA_DDOSE_EQ', 'DIA', 'SYS')]
 clinical_table <- clinical_table[!duplicated(clinical_table$PT), ] %>%
   mutate (GINA = as.factor(GINA),
           NUM_EX = as.factor(NUM_EX))
@@ -53,7 +53,8 @@ var_for_table <- c('gender','age','smoking.status','PACKNO','BMI','PHADRES', 'DU
                    'acq6_score','LABEOSV','LABNEUV','LABMACV','BRONCHP', 'LYMPHOP', 'EOSP', 'MACROP', 'NEUTROP',
                    'B_TLCPNVF', 'B_FEV1PNVG','B_FEV1FPNVG', 'FENRES', 'PCD','bhr',
                    'B_RVTLCPNVF',  'B_R520PNVR', 'B_SCONDPNVF','B_SACINPNVF', 'B_F50PNVR',
-                   'VI_856', 'VI_950', 'lung_ratio','MLD_ratio', "MORE1EX", "season.Maaike", "season_2_Maaike")
+                   'VI_856', 'VI_950', 'lung_ratio','MLD_ratio', "MORE1EX", "season.Maaike", "season_2_Maaike",
+                   "DIA","SYS")
 
 tabtotal <- CreateTableOne(vars = var_for_table, strata = "group_th" , data = master.Table)
 

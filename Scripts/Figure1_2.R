@@ -4,7 +4,7 @@ library(ggplot2)
 library(gridExtra)
 
 
-setwd("/Users/tatiana/Work/RP2/ATLANTIS")
+setwd("~/Work/RP2/ATLANTIS")
 
 sankey_plt <- readRDS("./th_high_th_low/plots/t2stable_sankey_plt_only_RNA.rds")
 volcano_list <- readRDS("./th_high_th_low/plots/ATLANTIS_volcano_list.rds")

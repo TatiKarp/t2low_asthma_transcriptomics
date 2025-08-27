@@ -7,7 +7,7 @@ library(fgsea)
 
 
 
-setwd("/Users/tatiana/Work/RP2/ATLANTIS")
+setwd("~/Work/RP2/ATLANTIS")
 
 
 # UBIOPRED result table:

@@ -5,7 +5,7 @@ library(dplyr)
 library(ggplot2)
 #libraryggplot2#library(ggpubr)
 
-setwd("Work/RP2/ATLANTIS/")
+setwd("~/Work/RP2/ATLANTIS")
 
 # 1. prepare data
 master.Table <- read.csv("./th_high_th_low/master_table_th2.csv", header = TRUE) %>%

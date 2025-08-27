@@ -2,7 +2,8 @@ library(dplyr)
 library(edgeR)
 library(biomaRt)
 
-setwd('/Users/tatiana/Work/RP2/ATLANTIS')
+setwd("~/Work/RP2/ATLANTIS")
+
 master.Table <- read.csv('./Umi_dedup/Dif_expr/ATLANTIS_master_table_QC.csv',header = TRUE)%>%
   filter (QC_check == 'YES')
 # add additional data 
@@ -48,6 +49,10 @@ DGEL <- edgeR::DGEList(expression.data)
 keep <- edgeR::filterByExpr(DGEL,design) 
 DGEL <- DGEL[keep, , keep.lib.sizes=FALSE]
 DGEL <- edgeR::calcNormFactors(DGEL, method = "TMM")
+
+# cpm_expr <- cpm(DGEL, normalized.lib.sizes = T, log = T)
+# write.csv(cpm_expr, "./th_high_th_low/logcpm_norm_expr.csv", quote = F)
+
 # Fit the model
 DGEL <- edgeR::estimateDisp(DGEL, design)
 #Maximizes the negative binomial likelihood to give the estimate of the common, trended and tagwise dispersions across all tags.

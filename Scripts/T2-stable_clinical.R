@@ -3,7 +3,7 @@ library(dplyr)
 library(readr)
 library(edgeR) 
 library(tableone)
-setwd("/Users/tatiana/Work/RP2/ATLANTIS")
+setwd("~/Work/RP2/ATLANTIS")
 # master.Table <- read_csv("./th_high_th_low/master_table_th2.csv")
 
 #### define T2-high and T2-low phenotype ####

@@ -10,7 +10,7 @@ library(rstatix)
 
 
 ensembl <- useMart("ensembl", dataset="hsapiens_gene_ensembl")
-setwd('/Users/tatiana/Work/RP2/ATLANTIS')
+setwd("~/Work/RP2/ATLANTIS")
 
 # metadata
 master.Table.low.healthy <- read.csv('./th_high_th_low/master_table_th2.csv')%>%

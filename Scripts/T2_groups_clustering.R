@@ -5,7 +5,7 @@ library(NbClust)
 library(cluster)
 library(ggplot2)
 
-setwd("Work/RP2/ATLANTIS")
+setwd("~/Work/RP2/ATLANTIS")
 
 # metadata
 master.Table <- read.csv('./th_high_th_low/master_table_th2.csv')
